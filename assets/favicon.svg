@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117 96" width="117" height="96" role="img" aria-label="Símbolo V7">
+<g transform="translate(0,-2)">
+  <g fill="none" stroke-linecap="butt" stroke-width="15">
+    <path d="M 16 12 L 47 84" stroke="#0D2B45"/>
+    <path d="M 47 84 L 101 12" stroke="#1B6CA8"/>
+    <path d="M 52 12 L 101 12" stroke="#3FC1C9" stroke-width="14"/>
+  </g>
+</g>
+</svg>

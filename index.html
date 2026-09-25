@@ -2,574 +2,893 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>V7 Produções — Inteligência e Automação</title>
-<meta name="description" content="Atendente de IA 24h no WhatsApp, prospecção ativa, automação de processos e conteúdo com IA. Você delega. A V7 executa. E a IA não dorme.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>V7 Produções | Atendimento com IA 24h, conteúdo e vendas num só sistema</title>
+<meta name="description" content="A V7 Produções coloca uma IA para atender seu WhatsApp 24h, organiza cada contato, cria conteúdo com estratégia de venda e traz o cliente de volta. Tudo conectado.">
+<meta property="og:title" content="V7 Produções | Você delega. A V7 executa. E a IA não dorme.">
+<meta property="og:description" content="Atendimento 24h no WhatsApp com IA, organização de contatos, conteúdo e vendas. Um sistema que trabalha junto, não ferramentas soltas.">
+<meta property="og:image" content="assets/og-v7.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#0D2B45">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #0D2B45;
-    --blue: #1B6CA8;
-    --cyan: #3FC1C9;
-    --graphite: #2E3A45;
-    --mist: #EDF1F5;
-    --white: #FFFFFF;
-    --radius: 10px;
-    --max-width: 1120px;
+  :root{
+    --navy:#0D2B45; --navy-2:#123A5C; --navy-3:#0A2238;
+    --azul:#1B6CA8; --azul-claro:#4C9BD6; --ciano:#3FC1C9;
+    --grafite:#2E3A45; --cinza:#5A6B7B; --cinza-claro:#9FB3C4;
+    --nevoa:#EDF1F5; --borda:#E2E8EF; --branco:#FFFFFF;
+    --wa:#25D366; --wa-escuro:#128C7E; --wa-bolha:#D9FDD3; --wa-fundo:#EFEAE2;
+    --raio:14px; --max:1160px;
+    --sombra:0 1px 2px rgba(13,43,69,.06),0 8px 24px rgba(13,43,69,.08);
   }
-
-  * { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    font-family: 'Inter', Arial, sans-serif;
-    color: var(--graphite);
-    background: var(--white);
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  img, svg { max-width: 100%; }
-
-  a { color: inherit; text-decoration: none; }
-
-  .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  section { padding: 72px 0; }
-
-  h1, h2, h3 { font-weight: 800; line-height: 1.2; margin: 0 0 16px; color: var(--navy); }
-  h2 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); }
-  h3 { font-size: 1.15rem; }
-  p { margin: 0 0 16px; }
-
-  .eyebrow {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 12px;
-  }
-
-  .section-intro { max-width: 620px; margin-bottom: 40px; }
-  .section-intro p { color: var(--graphite); opacity: 0.85; }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--branco);color:var(--grafite);
+    font-family:Inter,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  h1,h2,h3{color:var(--navy);line-height:1.15;letter-spacing:-.02em;margin:0}
+  h2{font-size:clamp(28px,4vw,42px);font-weight:800}
+  h3{font-size:20px;font-weight:700}
+  p{margin:0}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  section{padding:96px 0}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--azul);margin-bottom:14px}
+  .lead{font-size:clamp(17px,2vw,19px);color:var(--cinza);max-width:640px;margin-top:16px}
+  .head-center{text-align:center;display:flex;flex-direction:column;align-items:center;margin-bottom:56px}
 
   /* Botões */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px 26px;
-    border-radius: var(--radius);
-    font-weight: 700;
-    font-size: 0.98rem;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-    white-space: nowrap;
-  }
-  .btn:hover { transform: translateY(-1px); }
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:12px;
+    font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;
+    transition:transform .15s ease,background .15s ease,border-color .15s ease,box-shadow .15s ease;white-space:nowrap}
+  .btn:hover{transform:translateY(-1px)}
+  .btn svg{width:20px;height:20px;flex:none}
+  .btn-wa{background:var(--wa);color:#073B2A;box-shadow:0 6px 18px rgba(37,211,102,.28)}
+  .btn-wa:hover{background:#2EE072}
+  .btn-azul{background:var(--azul);color:#fff}
+  .btn-azul:hover{background:#175E93}
+  .btn-ghost{border-color:rgba(255,255,255,.28);color:#fff}
+  .btn-ghost:hover{border-color:#fff}
+  .btn-line{border-color:var(--borda);color:var(--navy);background:#fff}
+  .btn-line:hover{border-color:var(--azul)}
 
-  .btn-primary {
-    background: var(--cyan);
-    color: var(--navy);
-    box-shadow: 0 8px 20px rgba(63, 193, 201, 0.28);
-  }
-  .btn-primary:hover { background: #35b0b7; }
-
-  .btn-secondary {
-    background: transparent;
-    border-color: rgba(255,255,255,0.55);
-    color: var(--white);
-  }
-  .btn-secondary:hover { background: rgba(255,255,255,0.1); }
-
-  .btn-outline {
-    background: transparent;
-    border-color: var(--blue);
-    color: var(--blue);
-  }
-  .btn-outline:hover { background: var(--blue); color: var(--white); }
-
-  .btn-block { width: 100%; }
-
-  .btn-icon { width: 18px; height: 18px; flex-shrink: 0; }
-
-  /* Header */
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: var(--white);
-    border-bottom: 1px solid #E3E9EF;
-  }
-  .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 24px;
-    max-width: var(--max-width);
-    margin: 0 auto;
-  }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 800;
-    color: var(--navy);
-    font-size: 0.95rem;
-    letter-spacing: 0.02em;
-  }
-  .brand .mark {
-    width: 34px;
-    height: 34px;
-    flex-shrink: 0;
-  }
-  .brand .name small {
-    display: block;
-    font-weight: 600;
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
-    color: var(--blue);
-    margin-top: 1px;
-  }
-  .nav-cta { display: flex; gap: 10px; }
-  .nav-cta .btn { padding: 10px 18px; font-size: 0.88rem; }
-  .nav-cta .btn-primary { background: var(--blue); color: var(--white); box-shadow: none; }
-  .nav-cta .btn-primary:hover { background: #175a8d; }
+  /* Topo */
+  .topo{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(10px);
+    -webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--borda)}
+  .topo .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+  .marca{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .marca svg{width:40px;height:33px;flex:none}
+  .marca b{display:block;font-size:17px;font-weight:800;color:var(--navy);letter-spacing:-.01em;line-height:1.1}
+  .marca small{display:block;font-size:9.5px;font-weight:600;letter-spacing:.22em;color:var(--cinza);margin-top:3px}
+  .menu{display:flex;align-items:center;gap:28px}
+  .menu a{text-decoration:none;font-size:15px;font-weight:500;color:var(--grafite);white-space:nowrap}
+  .marca span{white-space:nowrap}
+  .menu a:hover{color:var(--azul)}
+  .topo .btn{padding:11px 18px;font-size:15px}
+  .menu .btn{display:none}
+  .burger{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--navy)}
+  .burger svg{width:26px;height:26px}
 
   /* Hero */
-  .hero {
-    background: linear-gradient(160deg, var(--navy) 0%, #123a5c 100%);
-    color: var(--white);
-    padding: 96px 0 88px;
-    text-align: center;
-  }
-  .hero .eyebrow { color: var(--cyan); }
-  .hero h1 {
-    color: var(--white);
-    font-size: clamp(2rem, 5vw, 3.1rem);
-    max-width: 780px;
-    margin: 0 auto 20px;
-  }
-  .hero .lead {
-    max-width: 560px;
-    margin: 0 auto 36px;
-    font-size: 1.08rem;
-    color: rgba(255,255,255,0.82);
-  }
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    justify-content: center;
-  }
-  .hero-pillars {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 28px;
-    margin-top: 56px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(255,255,255,0.14);
-  }
-  .hero-pillars span {
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: rgba(255,255,255,0.72);
-  }
+  .hero{background:radial-gradient(1100px 600px at 85% -10%,#1B4F7A 0%,transparent 60%),var(--navy);color:#fff;padding:84px 0 96px;position:relative;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .hero .eyebrow{color:var(--ciano)}
+  .hero h1{color:#fff;font-size:clamp(38px,5.6vw,64px);font-weight:800;letter-spacing:-.035em;line-height:1.04}
+  .hero h1 em{font-style:normal;color:var(--ciano)}
+  .hero .lead{color:#C4D3E0;max-width:560px;margin-top:22px}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+  .selos{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;font-size:14px;color:var(--cinza-claro)}
+  .selos span{display:flex;align-items:center;gap:8px}
+  .selos span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ciano)}
 
-  /* Ofertas */
-  .offers {
-    background: var(--mist);
-  }
-  .offers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-  }
-  .offer-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 28px 24px;
-    border: 1px solid #DFE6ED;
-    position: relative;
-  }
-  .offer-card.featured {
-    border: 2px solid var(--blue);
-    box-shadow: 0 12px 28px rgba(27, 108, 168, 0.14);
-  }
-  .offer-card .tag {
-    position: absolute;
-    top: -12px;
-    left: 24px;
-    background: var(--blue);
-    color: var(--white);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 5px 12px;
-    border-radius: 999px;
-  }
-  .offer-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    background: var(--mist);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-    color: var(--blue);
-  }
-  .offer-card.featured .offer-icon { background: var(--navy); color: var(--cyan); }
-  .offer-card p { font-size: 0.92rem; opacity: 0.85; margin: 0; }
+  /* Celular */
+  .fone-area{position:relative;display:flex;justify-content:center}
+  .fone{width:340px;max-width:100%;background:#0B1B2B;border-radius:44px;padding:12px;box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 0 0 2px #22384E}
+  .tela{border-radius:34px;overflow:hidden;background:var(--wa-fundo);height:560px;display:flex;flex-direction:column}
+  .wa-top{background:#075E54;color:#fff;display:flex;align-items:center;gap:10px;padding:34px 14px 12px}
+  .wa-top .av{width:36px;height:36px;border-radius:50%;background:#fff;display:grid;place-items:center;flex:none}
+  .wa-top .av svg{width:24px;height:20px}
+  .wa-top b{font-size:15px;display:block;line-height:1.2}
+  .wa-top small{font-size:12px;color:#CDEBE6}
+  .chat{flex:1;padding:14px 12px;display:flex;flex-direction:column;gap:8px;overflow:hidden;justify-content:flex-end;
+    background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1px);background-size:14px 14px}
+  .dia{align-self:center;background:#fff;color:#54656F;font-size:11.5px;padding:4px 10px;border-radius:8px;box-shadow:0 1px 1px rgba(0,0,0,.06)}
+  .msg{max-width:84%;padding:7px 10px 18px;border-radius:10px;font-size:14px;line-height:1.4;color:#111B21;position:relative;
+    box-shadow:0 1px 1px rgba(0,0,0,.08);animation:entra .35s ease both}
+  .msg .h{position:absolute;right:8px;bottom:3px;font-size:10.5px;color:#667781}
+  .msg.cli{align-self:flex-start;background:#fff;border-top-left-radius:2px}
+  .msg.ia{align-self:flex-end;background:var(--wa-bolha);border-top-right-radius:2px}
+  .digitando{align-self:flex-end;background:var(--wa-bolha);border-radius:10px;padding:10px 14px;display:flex;gap:4px;animation:entra .2s ease both}
+  .digitando.cli{align-self:flex-start;background:#fff}
+  .digitando i{width:7px;height:7px;border-radius:50%;background:#8696A0;animation:pula 1s infinite}
+  .digitando i:nth-child(2){animation-delay:.15s}.digitando i:nth-child(3){animation-delay:.3s}
+  @keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  @keyframes pula{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+  .wa-input{background:#F0F2F5;padding:10px 12px;display:flex;gap:8px;align-items:center}
+  .wa-input span{flex:1;background:#fff;border-radius:20px;padding:9px 14px;font-size:13px;color:#8696A0}
+  .wa-input i{width:36px;height:36px;border-radius:50%;background:#00A884;flex:none}
+  .ficha{position:absolute;left:-36px;bottom:-28px;background:#fff;color:var(--grafite);border-radius:14px;padding:14px 16px;
+    width:236px;box-shadow:0 18px 40px rgba(0,0,0,.3);font-size:13px;opacity:0;transform:translateY(12px);transition:.5s ease}
+  .ficha.on{opacity:1;transform:none}
+  .ficha .t{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--azul);display:flex;align-items:center;gap:6px;margin-bottom:8px}
+  .ficha .t::before{content:"";width:8px;height:8px;border-radius:50%;background:#2E9E6B}
+  .ficha dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px}
+  .ficha dt{color:var(--cinza)}
+  .ficha dd{margin:0;font-weight:600;color:var(--navy)}
+  .relogio{position:absolute;right:-18px;top:36px;background:var(--ciano);color:var(--navy);font-weight:800;border-radius:12px;
+    padding:10px 14px;font-size:13px;line-height:1.2;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+  .relogio small{display:block;font-weight:600;font-size:11px}
+
+  /* Faixa */
+  .faixa{background:var(--navy-3);color:#fff;padding:0}
+  .faixa .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+  .faixa div div{padding:28px 20px;border-left:1px solid rgba(255,255,255,.08)}
+  .faixa div div:first-child{border-left:0}
+  .faixa b{display:block;font-size:30px;font-weight:800;color:var(--ciano);letter-spacing:-.02em;line-height:1.1}
+  .faixa span{font-size:14px;color:var(--cinza-claro)}
+
+  /* Problema */
+  .problema{background:var(--nevoa)}
+  .problema .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .soltas{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .solta{background:#fff;border:1px dashed #C5D1DC;border-radius:var(--raio);padding:18px;font-size:15px;color:var(--cinza)}
+  .solta b{display:block;color:var(--navy);font-size:16px;margin-bottom:4px}
+  .solta:nth-child(odd){transform:rotate(-1.2deg)}
+  .solta:nth-child(even){transform:rotate(1deg) translateY(10px)}
+  .dado{margin-top:28px;background:#fff;border-left:4px solid var(--azul);border-radius:0 var(--raio) var(--raio) 0;padding:20px 22px}
+  .dado b{font-size:34px;color:var(--azul);font-weight:800;letter-spacing:-.02em;line-height:1}
+  .dado p{margin-top:6px;color:var(--grafite);font-size:16px}
+  .dado small{display:block;margin-top:8px;color:var(--cinza);font-size:12.5px}
+
+  /* Sistema */
+  .ciclo{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative;margin-bottom:64px}
+  .passo-ciclo{background:var(--navy);color:#fff;border-radius:var(--raio);padding:22px 20px;position:relative}
+  .passo-ciclo small{color:var(--ciano);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+  .passo-ciclo p{font-weight:600;font-size:16px;margin-top:6px;line-height:1.4}
+  .passo-ciclo:nth-child(-n+3)::after{content:"";position:absolute;right:-15px;top:50%;width:12px;height:12px;border-top:3px solid var(--ciano);
+    border-right:3px solid var(--ciano);transform:translateY(-50%) rotate(45deg);z-index:2}
+  .volta{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:10px;color:var(--azul);font-weight:600;font-size:15px;
+    border:2px dashed #BFD6EA;border-top:0;border-radius:0 0 18px 18px;height:40px;margin:-6px 12% 0;padding-top:14px}
+  .modulos{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .modulo{border:1px solid var(--borda);border-radius:18px;padding:32px;background:#fff;box-shadow:var(--sombra);position:relative;overflow:hidden}
+  .modulo .ic{width:52px;height:52px;border-radius:14px;background:var(--nevoa);display:grid;place-items:center;color:var(--azul);margin-bottom:18px}
+  .modulo .ic svg{width:28px;height:28px}
+  .modulo .n{position:absolute;right:26px;top:22px;font-size:54px;font-weight:800;color:var(--nevoa);letter-spacing:-.04em;line-height:1}
+  .modulo h3{font-size:22px}
+  .modulo > p{color:var(--cinza);margin-top:8px}
+  .modulo ul{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:9px}
+  .modulo li{display:flex;gap:10px;font-size:15.5px}
+  .modulo li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;
+    background:var(--ciano) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230D2B45' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center/12px no-repeat}
+
+  /* Perfis */
+  .perfis{background:var(--navy);color:#fff}
+  .perfis h2{color:#fff}
+  .perfis .eyebrow{color:var(--ciano)}
+  .perfis .lead{color:#C4D3E0}
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .perfil{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:30px;display:flex;flex-direction:column}
+  .perfil .tag{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-claro)}
+  .perfil h3{color:#fff;font-size:22px;margin-top:10px}
+  .perfil .resp{margin-top:14px;font-size:17px;color:var(--ciano);font-weight:600;line-height:1.45}
+  .perfil p.d{margin-top:12px;color:#B5C6D5;font-size:15.5px;flex:1}
+  .perfil a{margin-top:22px;align-self:flex-start;color:#fff;font-weight:600;text-decoration:none;border-bottom:2px solid var(--ciano);padding-bottom:2px;font-size:15px}
+
+  /* Projetos */
+  .projetos{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .shot-marca{display:grid;place-items:center;text-align:center}
+  .shot-marca span{color:#F3D9A4;font-weight:800;font-size:clamp(28px,3vw,38px);letter-spacing:.08em;line-height:1.05}
+  .projeto{border:1px solid var(--borda);border-radius:18px;overflow:hidden;background:#fff;box-shadow:var(--sombra);display:flex;flex-direction:column}
+  .projeto .shot{aspect-ratio:16/10;overflow:hidden;background:#111;border-bottom:1px solid var(--borda)}
+  .projeto .shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s ease}
+  .projeto:hover .shot img{transform:scale(1.03)}
+  .projeto .corpo{padding:26px 28px 28px}
+  .projeto .seg{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--azul)}
+  .projeto h3{margin-top:6px;font-size:22px}
+  .projeto p{margin-top:8px;color:var(--cinza);font-size:15.5px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .chips span{background:var(--nevoa);color:var(--navy);font-size:13px;font-weight:600;border-radius:30px;padding:5px 12px}
+
+  /* Portfólio Instagram */
+  .insta{background:var(--nevoa)}
+  .insta .topo-insta{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+  .grade{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+  .grade a{display:block;aspect-ratio:1;overflow:hidden;border-radius:6px;background:#dde5ec}
+  .grade img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+  .grade a:hover img{transform:scale(1.05)}
+  .insta-nota{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px;font-size:15px;color:var(--cinza)}
+  .insta-nota b{color:var(--navy)}
+
+  /* Como funciona */
+  .passos{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:p}
+  .passo{padding:28px 24px;border-radius:18px;background:#fff;border:1px solid var(--borda);position:relative}
+  .passo::before{counter-increment:p;content:counter(p);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;
+    background:var(--azul);color:#fff;font-weight:800;margin-bottom:16px}
+  .passo h3{font-size:18px}
+  .passo p{margin-top:8px;color:var(--cinza);font-size:15.5px}
+  .passo .tempo{display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:var(--azul);background:var(--nevoa);border-radius:20px;padding:4px 10px}
 
   /* Planos */
-  .plans-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 24px;
-    align-items: stretch;
-  }
-  .plan-card {
-    background: var(--white);
-    border: 1px solid #DFE6ED;
-    border-radius: var(--radius);
-    padding: 32px 28px;
-    display: flex;
-    flex-direction: column;
-  }
-  .plan-card.highlight {
-    border: 2px solid var(--navy);
-    background: var(--navy);
-    color: var(--white);
-    box-shadow: 0 16px 36px rgba(13, 43, 69, 0.22);
-  }
-  .plan-name { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--blue); margin-bottom: 6px; }
-  .plan-card.highlight .plan-name { color: var(--cyan); }
-  .plan-price { margin: 6px 0 4px; }
-  .plan-price .value { font-size: 2rem; font-weight: 800; color: var(--navy); }
-  .plan-card.highlight .plan-price .value { color: var(--white); }
-  .plan-price .period { font-size: 0.85rem; opacity: 0.65; }
-  .plan-setup { font-size: 0.82rem; opacity: 0.7; margin-bottom: 20px; }
-  .plan-card.highlight .plan-setup { opacity: 0.75; }
-  .plan-features {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 28px;
-    flex-grow: 1;
-  }
-  .plan-features li {
-    padding: 9px 0;
-    border-top: 1px solid rgba(0,0,0,0.06);
-    font-size: 0.9rem;
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-  }
-  .plan-card.highlight .plan-features li { border-top-color: rgba(255,255,255,0.14); }
-  .plan-features li:first-child { border-top: none; }
-  .plan-features li svg { flex-shrink: 0; width: 16px; height: 16px; margin-top: 3px; color: var(--cyan); }
-  .plan-card.highlight .btn-outline { border-color: var(--cyan); color: var(--cyan); }
-  .plan-card.highlight .btn-outline:hover { background: var(--cyan); color: var(--navy); }
-  .plans-note {
-    text-align: center;
-    font-size: 0.85rem;
-    opacity: 0.7;
-    margin-top: 32px;
-  }
+  .planos{background:var(--nevoa)}
+  .precos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+  .plano{background:#fff;border:1px solid var(--borda);border-radius:18px;padding:32px 28px;display:flex;flex-direction:column}
+  .plano.destaque{border:2px solid var(--azul);box-shadow:0 20px 50px rgba(27,108,168,.18);position:relative}
+  .plano.destaque::before{content:"Mais escolhido";position:absolute;top:-13px;left:28px;background:var(--azul);color:#fff;font-size:12px;
+    font-weight:700;border-radius:20px;padding:4px 12px;letter-spacing:.04em}
+  .plano h3{font-size:21px}
+  .plano .para{color:var(--cinza);font-size:15px;margin-top:6px;min-height:48px}
+  .valor{margin-top:20px;padding-top:20px;border-top:1px solid var(--borda)}
+  .valor b{font-size:36px;color:var(--navy);font-weight:800;letter-spacing:-.03em}
+  .valor b small{font-size:16px;font-weight:600;color:var(--cinza);letter-spacing:0}
+  .valor span{display:block;font-size:14px;color:var(--cinza);margin-top:2px}
+  .plano ul{list-style:none;padding:0;margin:22px 0 26px;display:grid;gap:10px;flex:1;align-content:start}
+  .plano li{font-size:15.5px;display:flex;gap:10px}
+  .plano li::before{content:"✓";color:var(--azul);font-weight:800}
+  .plano .btn{width:100%}
+  .obs-planos{text-align:center;color:var(--cinza);font-size:15px;margin-top:28px}
 
-  /* Prova */
-  .proof {
-    background: var(--navy);
-    color: var(--white);
-    text-align: center;
-  }
-  .proof .stat {
-    font-size: clamp(3.5rem, 10vw, 6rem);
-    font-weight: 800;
-    color: var(--cyan);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .proof .stat-label {
-    max-width: 560px;
-    margin: 0 auto 20px;
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--white);
-  }
-  .proof .stat-detail {
-    max-width: 560px;
-    margin: 0 auto 8px;
-    color: rgba(255,255,255,0.72);
-    font-size: 0.95rem;
-  }
-  .proof .stat-source {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.5);
-  }
+  /* FAQ */
+  .faq{max-width:820px;margin:0 auto}
+  .faq details{border-bottom:1px solid var(--borda);padding:6px 0}
+  .faq summary{list-style:none;cursor:pointer;padding:18px 40px 18px 0;font-weight:700;color:var(--navy);font-size:18px;position:relative}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:26px;font-weight:400;color:var(--azul);transition:transform .2s}
+  .faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+  .faq details p{padding:0 0 20px;color:var(--cinza);font-size:16.5px;max-width:720px}
 
-  /* Footer */
-  footer {
-    background: var(--graphite);
-    color: rgba(255,255,255,0.85);
-    padding: 56px 0 28px;
-  }
-  .footer-top {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 32px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-  }
-  .footer-brand .brand { color: var(--white); }
-  .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9rem; max-width: 320px; margin-top: 12px; }
-  .footer-actions { display: flex; flex-direction: column; gap: 12px; }
-  .footer-actions .btn { justify-content: flex-start; }
-  .footer-bottom {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 12px;
-    padding-top: 24px;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.45);
-  }
+  /* CTA final */
+  .final{background:radial-gradient(900px 500px at 10% 120%,#1B4F7A 0%,transparent 60%),var(--navy);color:#fff;text-align:center}
+  .final h2{color:#fff;max-width:760px;margin:0 auto}
+  .final .lead{color:#C4D3E0;margin:18px auto 0}
+  .final .hero-ctas{justify-content:center}
 
-  @media (max-width: 640px) {
-    section { padding: 56px 0; }
-    .nav { flex-wrap: wrap; gap: 12px; }
-    .nav-cta { width: 100%; }
-    .nav-cta .btn { flex: 1; padding: 10px 12px; font-size: 0.8rem; }
-    .hero { padding: 72px 0 64px; }
-    .footer-top { flex-direction: column; }
-  }
+  /* Rodapé */
+  footer{background:var(--navy-3);color:var(--cinza-claro);padding:48px 0 32px;font-size:14.5px}
+  footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+  footer .marca b{color:#fff}
+  footer .marca small{color:var(--cinza-claro)}
+  footer .frase{margin-top:16px;color:#C4D3E0;max-width:340px}
+  footer h4{color:#fff;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 14px}
+  footer ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+  footer a{text-decoration:none}
+  footer a:hover{color:#fff}
+  .copy{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.08);padding-top:22px;margin-top:8px;font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
-  @media (max-width: 420px) {
-    .brand .name { font-size: 0.82rem; }
+  /* WhatsApp flutuante */
+  .sociais{display:flex;gap:10px;margin-top:18px}
+  .sociais a{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.08);color:#fff;transition:background .15s,transform .15s}
+  .sociais a:hover{background:var(--azul);transform:translateY(-2px)}
+  .sociais a.wa:hover{background:var(--wa);color:#073B2A}
+  .sociais svg{width:21px;height:21px}
+  .menu .sociais-menu{display:none}
+  .topo-sociais{display:flex;gap:4px;margin-right:4px}
+  .topo-sociais a{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:var(--navy)}
+  .topo-sociais a:hover{background:var(--nevoa);color:var(--azul)}
+  .topo-sociais svg{width:20px;height:20px}
+  .wa-float{position:fixed;right:20px;bottom:20px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--wa);
+    display:grid;place-items:center;box-shadow:0 10px 28px rgba(0,0,0,.25);transition:transform .15s}
+  .wa-float:hover{transform:scale(1.06)}
+  .wa-float svg{width:32px;height:32px}
+
+  /* Revelar ao rolar */
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .rv.on{opacity:1;transform:none}
+
+  @media (max-width:1080px){
+    .menu{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;gap:0;
+      border-bottom:1px solid var(--borda);padding:8px 24px 20px}
+    .menu.aberto{display:flex}
+    .menu a{padding:14px 0;border-bottom:1px solid var(--nevoa)}
+    .menu .btn{display:flex;margin-top:14px;color:#073B2A}
+    .menu .sociais-menu{display:flex;gap:10px;margin-top:14px}
+    .menu .sociais-menu a{border:0;padding:0;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--nevoa);color:var(--navy)}
+    .menu .sociais-menu svg{width:22px;height:22px}
+    .topo-sociais{display:none}
+    .burger{display:block}
+    .topo .acoes .btn{display:none}
+  }
+  @media (max-width:1020px){
+    .hero .wrap{grid-template-columns:1fr;gap:64px}
+    .fone-area{padding:0 40px}
+    .problema .wrap{grid-template-columns:1fr;gap:40px}
+    .ciclo{grid-template-columns:1fr 1fr}
+    .passo-ciclo:nth-child(2)::after{display:none}
+    .volta{display:none}
+    .cards3,.precos,.projetos{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}
+    .passos{grid-template-columns:1fr 1fr}
+    .grade{grid-template-columns:repeat(4,1fr)}
+    .grade a:nth-child(n+17){display:none}
+  }
+  @media (max-width:860px){
+    .modulos,.projetos{grid-template-columns:1fr}
+    .faixa .wrap{grid-template-columns:1fr 1fr}
+    .faixa div div:nth-child(3){border-left:0}
+    .faixa div div:nth-child(n+3){border-top:1px solid rgba(255,255,255,.08)}
+    footer .wrap{grid-template-columns:1fr 1fr}
+    footer .wrap > div:first-child{grid-column:1/-1}
+  }
+  @media (max-width:560px){
+    .btn{white-space:normal;text-align:center;line-height:1.3}
+    .plano .btn,.final .btn{width:100%}
+    section{padding:72px 0}
+    .wrap{padding:0 16px}
+    .hero{padding:56px 0 72px}
+    .hero-ctas .btn{width:100%}
+    .fone-area{padding:0}
+    .fone{width:300px}
+    .tela{height:520px}
+    .ficha{left:0;bottom:-24px;width:200px;padding:12px 14px}
+    .relogio{right:0;top:20px}
+    .fone{width:280px}
+    .soltas{grid-template-columns:1fr}
+    .ciclo{grid-template-columns:1fr}
+    .passo-ciclo::after{display:none}
+    .modulo{padding:26px 22px}
+    .passos{grid-template-columns:1fr}
+    .grade{grid-template-columns:repeat(3,1fr);gap:5px}
+    .grade a:nth-child(n+13){display:none}
+    .faixa b{font-size:24px}
+    .faixa div div{padding:22px 14px}
+    .faq summary{font-size:16.5px}
+    footer .wrap{grid-template-columns:1fr}
+    .marca small{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .rv{opacity:1;transform:none}
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="nav">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect width="44" height="44" rx="9" fill="#0D2B45"/>
-        <path d="M11 13L18.5 31H21L15 13H11Z" fill="#3FC1C9"/>
-        <path d="M33 13H19.5L21 17H27.5L18 31H22.5L33 13Z" fill="#FFFFFF"/>
-      </svg>
-      <span class="name">V7 PRODUÇÕES<small>INTELIGÊNCIA E AUTOMAÇÃO</small></span>
-    </div>
-    <div class="nav-cta">
-      <a class="btn btn-outline" href="https://cal.com/v7-producoes/30min" target="_blank" rel="noopener">
-        <span class="full">Agendar</span>
-      </a>
-      <a class="btn btn-primary" id="wa-nav" href="#" target="_blank" rel="noopener">
-        <span class="full">Falar no WhatsApp</span>
-      </a>
+<!-- Símbolo V7 reutilizável -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="v7" viewBox="0 0 117 96">
+    <g transform="translate(0,-2)" fill="none" stroke-linecap="butt" stroke-width="15">
+      <path d="M 16 12 L 47 84" stroke="var(--v7-a,#0D2B45)"/>
+      <path d="M 47 84 L 101 12" stroke="#1B6CA8"/>
+      <path d="M 52 12 L 101 12" stroke="#3FC1C9" stroke-width="14"/>
+    </g>
+  </symbol>
+  <symbol id="ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8h3.3Z"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.04c-.24.69-1.42 1.32-1.96 1.37-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.26-.29.58-.36.77-.36h.55c.18 0 .42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.09.19-.14.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.3-.13.59.17.29.74 1.22 1.58 1.97 1.09.97 2.01 1.27 2.3 1.41.29.14.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.38-.24.65-.14.26.09 1.68.79 1.97.94.29.14.48.21.55.34.07.12.07.7-.17 1.38Z"/></symbol>
+</svg>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="V7 Produções — início">
+      <svg><use href="#v7"/></svg>
+      <span><b>V7 PRODUÇÕES</b><small>INTELIGÊNCIA E AUTOMAÇÃO</small></span>
+    </a>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a href="#sistema">O sistema</a>
+      <a href="#para-quem">Para quem</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#planos">Planos</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a class="btn btn-wa" href="#" data-wa="Oi! Vim pelo site da V7 e quero entender como funciona.">
+        <svg><use href="#wa"/></svg>Falar no WhatsApp</a>
+      <div class="sociais-menu">
+        <a href="https://www.instagram.com/v7producoes.ia/" target="_blank" rel="noopener" aria-label="Instagram da V7"><svg><use href="#ig"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61594440682200" target="_blank" rel="noopener" aria-label="Facebook da V7"><svg><use href="#fb"/></svg></a>
+      </div>
+    </nav>
+    <div class="acoes" style="display:flex;align-items:center;gap:8px">
+      <div class="topo-sociais">
+        <a href="https://www.instagram.com/v7producoes.ia/" target="_blank" rel="noopener" aria-label="Instagram da V7"><svg><use href="#ig"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61594440682200" target="_blank" rel="noopener" aria-label="Facebook da V7"><svg><use href="#fb"/></svg></a>
+      </div>
+      <a class="btn btn-azul" href="#" data-wa="Oi! Vim pelo site da V7 e quero entender como funciona.">Falar com a V7</a>
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
   </div>
 </header>
 
-<section class="hero">
-  <div class="container">
-    <span class="eyebrow">Atendimento e automação com IA</span>
-    <h1>Você delega. A V7 executa. E a IA não dorme.</h1>
-    <p class="lead">Sua empresa responde clientes, prospecta e organiza processos 24 horas por dia — sem depender de mais uma pessoa contratada.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" id="wa-hero" href="#" target="_blank" rel="noopener">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.24-1.38a9.9 9.9 0 0 0 4.8 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.16-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.26-.28.57-.35.76-.35h.55c.18 0 .42-.07.65.5.24.58.8 2 .87 2.14.07.14.12.31.02.5-.1.2-.15.31-.3.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.3.15.47.13.65-.08.18-.2.76-.88.96-1.19.2-.3.4-.25.68-.15.28.1 1.77.83 2.07.98.3.15.5.23.57.36.08.13.08.75-.16 1.42z"/></svg>
-        Abrir conversa no WhatsApp
-      </a>
-      <a class="btn btn-secondary" href="https://cal.com/v7-producoes/30min" target="_blank" rel="noopener">Agendar diagnóstico de 30min</a>
-    </div>
-    <div class="hero-pillars">
-      <span>Praticidade</span>
-      <span>Eficiência</span>
-      <span>Agilidade</span>
-      <span>Memória</span>
-    </div>
-  </div>
-</section>
+<main id="inicio">
 
-<section class="offers" id="ofertas">
-  <div class="container">
-    <span class="eyebrow">O que a V7 faz</span>
-    <h2>Quatro frentes, um objetivo: ninguém deixa de ser atendido</h2>
-    <div class="section-intro"><p>Não importa o tamanho do negócio — se tem tarefa que se repete e cliente esperando resposta, a V7 assume.</p></div>
-
-    <div class="offers-grid">
-      <div class="offer-card featured">
-        <span class="tag">Carro-chefe</span>
-        <div class="offer-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Atendimento · Organização · Conteúdo · Vendas</span>
+        <h1>Você delega. A V7 executa. <em>E a IA não dorme.</em></h1>
+        <p class="lead">Uma IA que atende seu WhatsApp 24 horas de forma humana, tira dúvidas e agenda. Cada contato salvo, conteúdo que vende e campanhas que trazem o cliente de volta. Tudo conectado num só sistema.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-wa" href="#" data-wa="Oi! Quero ver como a IA da V7 atenderia o WhatsApp da minha empresa.">
+            <svg><use href="#wa"/></svg>Quero ver funcionando</a>
+          <a class="btn btn-ghost" href="https://cal.com/v7-producoes/30min" target="_blank" rel="noopener">Agendar diagnóstico grátis</a>
         </div>
-        <h3>Atendente IA 24h no WhatsApp</h3>
-        <p>Responde clientes na hora, de madrugada, fim de semana ou feriado. Sem fila, sem mensagem esquecida.</p>
+        <div class="selos">
+          <span>Primeiro resultado em até 7 dias</span>
+          <span>Piloto de 14 dias</span>
+          <span>Sem precisar entender de tecnologia</span>
+        </div>
       </div>
 
-      <div class="offer-card">
-        <div class="offer-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <div class="fone-area" aria-label="Exemplo de conversa da IA da V7 no WhatsApp">
+        <div class="fone">
+          <div class="tela">
+            <div class="wa-top">
+              <div class="av"><svg><use href="#v7"/></svg></div>
+              <div><b>Studio Bella Pele</b><small id="status">online</small></div>
+            </div>
+            <div class="chat" id="chat" aria-live="off"></div>
+            <div class="wa-input"><span>Mensagem</span><i></i></div>
+          </div>
         </div>
-        <h3>Prospecção ativa</h3>
-        <p>A IA busca e aborda quem tem perfil de cliente, todos os dias, sem depender de alguém lembrar de fazer isso.</p>
-      </div>
-
-      <div class="offer-card">
-        <div class="offer-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+        <div class="relogio">02:14<small>e ninguém ficou sem resposta</small></div>
+        <div class="ficha" id="ficha">
+          <div class="t">Contato salvo</div>
+          <dl>
+            <dt>Nome</dt><dd>Camila</dd>
+            <dt>Interesse</dt><dd>Limpeza de pele</dd>
+            <dt>Status</dt><dd>Agendada · sáb 10h30</dd>
+          </dl>
         </div>
-        <h3>Automação de processos sob medida</h3>
-        <p>Planilha, confirmação de agendamento, lembrete de cobrança — o que se repete toda semana passa a rodar sozinho.</p>
-      </div>
-
-      <div class="offer-card">
-        <div class="offer-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-        </div>
-        <h3>Conteúdo e social media com IA</h3>
-        <p>Calendário, texto, arte e publicação rodando todo mês — sem depender de alguém lembrar de postar.</p>
       </div>
     </div>
+  </section>
+
+  <!-- FAIXA -->
+  <div class="faixa">
+    <div class="wrap">
+      <div><b>24h</b><span>atendendo, inclusive domingo e feriado</span></div>
+      <div><b>Segundos</b><span>pra responder quem chamou</span></div>
+      <div><b>0</b><span>contatos esquecidos na conversa</span></div>
+      <div><b>7 dias</b><span>pro primeiro resultado aparecer</span></div>
+    </div>
   </div>
-</section>
 
-<section id="planos">
-  <div class="container">
-    <span class="eyebrow">Planos</span>
-    <h2>Escolha o ponto de partida certo pro seu negócio</h2>
-    <div class="section-intro"><p>Piloto de 14 dias nos dois primeiros planos, abatido na implantação. Mínimo de 3 meses de contrato.</p></div>
-
-    <div class="plans-grid">
-      <div class="plan-card">
-        <div class="plan-name">V7 Essencial</div>
-        <div class="plan-price"><span class="value">R$ 597</span><span class="period">/mês</span></div>
-        <div class="plan-setup">+ R$ 1.200 de implantação</div>
-        <ul class="plan-features">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>Atendente IA 24h (1 número)</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>Respostas automáticas</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>Histórico por cliente</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>Relatório mensal</li>
-        </ul>
-        <a class="btn btn-outline btn-block" id="wa-essencial" href="#" target="_blank" rel="noopener">Falar sobre o Essencial</a>
+  <!-- PROBLEMA -->
+  <section class="problema">
+    <div class="wrap">
+      <div class="rv">
+        <span class="eyebrow">O problema</span>
+        <h2>Não falta ferramenta. Falta elas conversarem.</h2>
+        <p class="lead">O WhatsApp num canto, a planilha no outro, o Instagram parado e o cliente que pediu orçamento esquecido no meio. Cada peça sozinha até funciona, mas o dinheiro escapa entre elas.</p>
+        <div class="dado">
+          <b>23%</b>
+          <p>das empresas nunca deram retorno a quem pediu contato.</p>
+          <small>Fonte: Harvard Business Review (2011), auditoria com 2.241 empresas.</small>
+        </div>
       </div>
-
-      <div class="plan-card highlight">
-        <div class="plan-name">V7 Crescimento</div>
-        <div class="plan-price"><span class="value">R$ 1.197</span><span class="period">/mês</span></div>
-        <div class="plan-setup">+ R$ 1.900 de implantação</div>
-        <ul class="plan-features">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>Tudo do Essencial</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>Prospecção ativa diária</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 2 números</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>Follow-up automático</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>Agendamento automático</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>Acompanhamento quinzenal</li>
-        </ul>
-        <a class="btn btn-outline btn-block" id="wa-crescimento" href="#" target="_blank" rel="noopener">Falar sobre o Crescimento</a>
-      </div>
-
-      <div class="plan-card">
-        <div class="plan-name">V7 Exclusivo</div>
-        <div class="plan-price"><span class="value">Sob consulta</span></div>
-        <div class="plan-setup">Implantação sob consulta</div>
-        <ul class="plan-features">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>Tudo do Crescimento</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>Automações sob medida</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>Integração com sistemas do cliente</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>Conteúdo com IA</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>Consultoria contínua</li>
-        </ul>
-        <a class="btn btn-outline btn-block" id="wa-exclusivo" href="#" target="_blank" rel="noopener">Falar sobre o Exclusivo</a>
+      <div class="soltas rv" aria-hidden="true">
+        <div class="solta"><b>WhatsApp</b>Mensagem das 23h respondida no dia seguinte.</div>
+        <div class="solta"><b>Planilha</b>Contato sem nome, sem interesse, sem histórico.</div>
+        <div class="solta"><b>Instagram</b>Post quando dá tempo, sem estratégia de venda.</div>
+        <div class="solta"><b>Cliente antigo</b>Comprou uma vez e nunca mais ouviu falar de você.</div>
       </div>
     </div>
-    <p class="plans-note">Piloto de 14 dias disponível nos planos Essencial e Crescimento. Contrato mínimo de 3 meses.</p>
-  </div>
-</section>
+  </section>
 
-<section class="proof">
-  <div class="container">
-    <span class="eyebrow" style="color:var(--cyan)">Por que isso importa</span>
-    <div class="stat">1 em 4</div>
-    <p class="stat-label">empresas nunca respondem quem pede orçamento.</p>
-    <p class="stat-detail">Numa auditoria com 2.241 empresas, 23% simplesmente nunca deram retorno a quem levantou a mão querendo comprar — e quase nenhuma delas sabe disso, porque ninguém mede o que não aconteceu.</p>
-    <p class="stat-source">Fonte: Harvard Business Review, 2011</p>
-  </div>
-</section>
+  <!-- SISTEMA -->
+  <section id="sistema">
+    <div class="wrap">
+      <div class="head-center rv">
+        <span class="eyebrow">O sistema V7</span>
+        <h2>Um sistema que trabalha junto,<br>não ferramentas soltas</h2>
+        <p class="lead">Cada parte alimenta a próxima. O conteúdo atrai, a IA atende, o contato fica salvo e a campanha traz de volta.</p>
+      </div>
+
+      <div class="ciclo rv">
+        <div class="passo-ciclo"><small>1 · Atrai</small><p>O post com estratégia chama a pessoa pra conversa</p></div>
+        <div class="passo-ciclo"><small>2 · Atende</small><p>A IA responde na hora, tira dúvidas e agenda</p></div>
+        <div class="passo-ciclo"><small>3 · Organiza</small><p>O contato fica salvo com nome, interesse e histórico</p></div>
+        <div class="passo-ciclo"><small>4 · Traz de volta</small><p>Acompanhamento e campanhas reativam quem sumiu</p></div>
+        <div class="volta"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>e o ciclo recomeça sozinho</div>
+      </div>
+
+      <div class="modulos">
+        <article class="modulo rv">
+          <span class="n">01</span>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/></svg></div>
+          <h3>Atendimento 24h no WhatsApp</h3>
+          <p>Uma IA que responde de forma humana, tira dúvidas e agenda. De madrugada, no domingo, no feriado.</p>
+          <ul>
+            <li>Responde em segundos, no tom da sua empresa</li>
+            <li>Entende o que a pessoa quer e separa quem está pronto pra comprar</li>
+            <li>Agenda direto na sua agenda, sem ida e volta</li>
+            <li>Passa a conversa pra você quando precisa de uma pessoa</li>
+          </ul>
+        </article>
+        <article class="modulo rv">
+          <span class="n">02</span>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18.5 20a6.5 6.5 0 0 0-2.5-5.1"/></svg></div>
+          <h3>Organização de contatos</h3>
+          <p>Cada contato salvo com nome, interesse e histórico. Nada se perde.</p>
+          <ul>
+            <li>Ficha de cada cliente montada sozinha durante a conversa</li>
+            <li>Você sabe quem pediu orçamento, quem agendou e quem sumiu</li>
+            <li>Histórico completo, mesmo meses depois</li>
+            <li>Relatório mensal com o que entrou e o que virou venda</li>
+          </ul>
+        </article>
+        <article class="modulo rv">
+          <span class="n">03</span>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></div>
+          <h3>Conteúdo com IA</h3>
+          <p>Vídeos e posts criados com IA, com estratégia de venda, postados de forma organizada.</p>
+          <ul>
+            <li>Calendário do mês pensado pro seu público</li>
+            <li>Artes e vídeos na identidade da sua marca</li>
+            <li>Legendas que chamam pra conversa, não só pra curtir</li>
+            <li>Publicação automática nos dias e horários certos</li>
+          </ul>
+        </article>
+        <article class="modulo rv">
+          <span class="n">04</span>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>Vendas e retorno</h3>
+          <p>Campanhas e mensagens de acompanhamento que trazem o cliente de volta.</p>
+          <ul>
+            <li>Acompanhamento automático de quem pediu orçamento e não fechou</li>
+            <li>Lembrete de horário, pós-venda e pedido de avaliação</li>
+            <li>Campanhas pra sua base em datas que vendem</li>
+            <li>Anúncios que levam direto pro WhatsApp já atendido pela IA</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM -->
+  <section class="perfis" id="para-quem">
+    <div class="wrap">
+      <div class="head-center rv">
+        <span class="eyebrow">Para cada tipo de cliente</span>
+        <h2>Onde quer que você esteja,<br>a gente começa dali</h2>
+        <p class="lead">Nada de pacote genérico. Cada projeto é montado pro seu negócio, já pensando em vender.</p>
+      </div>
+      <div class="cards3">
+        <article class="perfil rv">
+          <span class="tag">Começando agora</span>
+          <h3>Não tem nada ainda</h3>
+          <p class="resp">A V7 constrói do zero, já pensando pra vender.</p>
+          <p class="d">Site, WhatsApp com IA, perfil no Instagram e organização de contatos, nascendo juntos e já conectados.</p>
+          <a href="#" data-wa="Oi! Estou começando do zero e quero montar tudo com a V7.">Quero começar do zero →</a>
+        </article>
+        <article class="perfil rv">
+          <span class="tag">Já tem presença</span>
+          <h3>Tem site, mas precisa mudar</h3>
+          <p class="resp">A V7 refaz e conecta ao seu atendimento e às suas redes.</p>
+          <p class="d">Um site com a cara do seu negócio, que leva o visitante direto pra uma conversa que já é atendida na hora.</p>
+          <a href="#" data-wa="Oi! Já tenho site, mas quero refazer e conectar ao meu WhatsApp e redes.">Quero refazer meu site →</a>
+        </article>
+        <article class="perfil rv">
+          <span class="tag">Já tem as peças</span>
+          <h3>Tem coisas soltas</h3>
+          <p class="resp">Você já tem as peças. A V7 faz elas conversarem entre si.</p>
+          <p class="d">WhatsApp, Instagram, agenda e planilha trabalhando juntos, sem você copiar e colar nada de um lado pro outro.</p>
+          <a href="#" data-wa="Oi! Já tenho WhatsApp, Instagram e outras ferramentas, mas tudo solto. Quero conectar.">Quero conectar o que já tenho →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos">
+    <div class="wrap">
+      <div class="head-center rv">
+        <span class="eyebrow">Projetos</span>
+        <h2>Feito pela V7</h2>
+        <p class="lead">Negócios diferentes, a mesma lógica: presença que vende, atendimento que responde e tudo ligado ao WhatsApp.</p>
+      </div>
+      <div class="projetos">
+        <article class="projeto rv">
+          <div class="shot"><img src="assets/cases/vivian-boa-sorte.jpg" alt="Site da corretora Vivian Boa Sorte" loading="lazy"></div>
+          <div class="corpo">
+            <span class="seg">Imobiliário · Alto padrão</span>
+            <h3>Vivian Boa Sorte</h3>
+            <p>Site com catálogo de imóveis, painel próprio pra cadastrar novos anúncios e cada botão levando direto pro WhatsApp da corretora com a mensagem pronta.</p>
+            <div class="chips"><span>Site</span><span>Painel de imóveis</span><span>WhatsApp</span><span>Anúncios</span></div>
+          </div>
+        </article>
+        <article class="projeto rv">
+          <div class="shot"><img src="assets/cases/stockcars.jpg" alt="Site da loja de veículos StockCars" loading="lazy"></div>
+          <div class="corpo">
+            <span class="seg">Automotivo · Seminovos</span>
+            <h3>StockCars</h3>
+            <p>Site com estoque filtrável, atendente de IA no Messenger que conhece cada carro e agenda visita, e publicação automática no Instagram.</p>
+            <div class="chips"><span>Site</span><span>Atendente IA</span><span>Instagram automático</span><span>Campanhas</span></div>
+          </div>
+        </article>
+        <article class="projeto rv">
+          <div class="shot shot-marca" style="background:radial-gradient(420px 260px at 70% 20%,#8C1C2B 0%,transparent 70%),#2A0E14">
+            <span>ADEGA<br>DO ZACA</span>
+          </div>
+          <div class="corpo">
+            <span class="seg">Varejo · Adega e bebidas</span>
+            <h3>Adega do Zaca</h3>
+            <p>Adega de bairro com atendimento pelo WhatsApp: pedidos, dúvidas sobre produtos e horários respondidos na hora, mesmo no fim de semana.</p>
+            <div class="chips"><span>WhatsApp com IA</span><span>Pedidos</span><span>Conteúdo</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="insta">
+    <div class="wrap">
+      <div class="topo-insta rv">
+        <div>
+          <span class="eyebrow">Conteúdo com IA</span>
+          <h2>A prova está no nosso perfil</h2>
+          <p class="lead">21 posts criados com IA, com dado real e estratégia de venda, publicados sozinhos em horário programado. É o mesmo processo que a V7 monta pra você.</p>
+        </div>
+        <a class="btn btn-line" href="https://www.instagram.com/v7producoes.ia/" target="_blank" rel="noopener">Ver @v7producoes.ia</a>
+      </div>
+      <div class="grade rv" id="grade"></div>
+      <div class="insta-nota rv">
+        <span><b>3 posts</b> por dia útil, no automático</span>
+        <span><b>Fonte citada</b> em todo número usado</span>
+        <span><b>Identidade</b> única do começo ao fim</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona">
+    <div class="wrap">
+      <div class="head-center rv">
+        <span class="eyebrow">Como funciona</span>
+        <h2>Do primeiro papo ao sistema rodando</h2>
+        <p class="lead">Você não configura nada. A V7 entrega funcionando e acompanha de perto.</p>
+      </div>
+      <div class="passos">
+        <div class="passo rv"><h3>Diagnóstico</h3><p>30 minutos pra entender seu negócio, onde você perde cliente e o que dá pra automatizar primeiro.</p><span class="tempo">Grátis</span></div>
+        <div class="passo rv"><h3>Montagem</h3><p>A V7 monta a IA com as suas informações, preços e jeito de falar, e conecta com o que você já usa.</p><span class="tempo">Até 7 dias</span></div>
+        <div class="passo rv"><h3>Piloto</h3><p>14 dias com tudo rodando e você acompanhando cada resposta. Se não valer, a gente para.</p><span class="tempo">14 dias</span></div>
+        <div class="passo rv"><h3>Crescimento</h3><p>Relatório todo mês, ajustes contínuos e novas automações conforme o negócio pede.</p><span class="tempo">Todo mês</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANOS -->
+  <section class="planos" id="planos">
+    <div class="wrap">
+      <div class="head-center rv">
+        <span class="eyebrow">Planos</span>
+        <h2>Escolha o ponto de partida</h2>
+        <p class="lead">Comece pelo que mais dói hoje e vá ligando as outras peças.</p>
+      </div>
+      <div class="precos">
+        <article class="plano rv">
+          <h3>V7 Essencial</h3>
+          <p class="para">Pra quem quer parar de perder cliente no WhatsApp.</p>
+          <div class="valor"><b>R$ 597<small>/mês</small></b><span>Implantação R$ 1.200</span></div>
+          <ul>
+            <li>Atendente IA 24h (1 número)</li>
+            <li>Respostas automáticas no seu tom</li>
+            <li>Histórico salvo por cliente</li>
+            <li>Relatório mensal</li>
+          </ul>
+          <a class="btn btn-line" href="#" data-wa="Oi! Tenho interesse no plano V7 Essencial.">Quero o Essencial</a>
+        </article>
+        <article class="plano destaque rv">
+          <h3>V7 Crescimento</h3>
+          <p class="para">Pra quem quer atender, acompanhar e trazer mais cliente.</p>
+          <div class="valor"><b>R$ 1.197<small>/mês</small></b><span>Implantação R$ 1.900</span></div>
+          <ul>
+            <li>Tudo do Essencial</li>
+            <li>Até 2 números de WhatsApp</li>
+            <li>Agendamento automático</li>
+            <li>Acompanhamento automático de quem não fechou</li>
+            <li>Prospecção ativa</li>
+            <li>Reunião de acompanhamento a cada 15 dias</li>
+          </ul>
+          <a class="btn btn-azul" href="#" data-wa="Oi! Tenho interesse no plano V7 Crescimento.">Quero o Crescimento</a>
+        </article>
+        <article class="plano rv">
+          <h3>V7 Exclusivo</h3>
+          <p class="para">Pra quem quer o sistema completo, sob medida.</p>
+          <div class="valor"><b>Sob consulta</b><span>Montado a partir do diagnóstico</span></div>
+          <ul>
+            <li>Tudo do Crescimento</li>
+            <li>Site novo ou refeito, conectado</li>
+            <li>Conteúdo e vídeos com IA</li>
+            <li>Integração com os sistemas que você já usa</li>
+            <li>Consultoria contínua</li>
+          </ul>
+          <a class="btn btn-line" href="#" data-wa="Oi! Quero conversar sobre o plano V7 Exclusivo, sob medida.">Conversar sobre o Exclusivo</a>
+        </article>
+      </div>
+      <p class="obs-planos rv">Piloto de 14 dias nos planos Essencial e Crescimento, abatido na implantação. Contrato mínimo de 3 meses.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="duvidas">
+    <div class="wrap">
+      <div class="head-center rv">
+        <span class="eyebrow">Dúvidas</span>
+        <h2>Perguntas frequentes</h2>
+      </div>
+      <div class="faq rv">
+        <details>
+          <summary>Preciso entender de tecnologia?</summary>
+          <p>Não. A V7 monta, conecta e entrega funcionando. Você só conta como o seu negócio funciona e aprova as respostas.</p>
+        </details>
+        <details>
+          <summary>O cliente vai perceber que é uma IA?</summary>
+          <p>A IA conversa de forma natural, com o seu jeito de falar, frases curtas e o nome do cliente. E sempre que a conversa pedir uma pessoa, ela passa pra você.</p>
+        </details>
+        <details>
+          <summary>E se a IA responder algo errado?</summary>
+          <p>Ela só fala o que está no roteiro aprovado por você: serviços, preços, horários e regras. No piloto de 14 dias você acompanha cada resposta e a gente ajusta junto.</p>
+        </details>
+        <details>
+          <summary>Funciona pro meu tipo de negócio?</summary>
+          <p>Se você tem cliente pra atender e tarefa que se repete, funciona. Clínicas, estúdios, lojas, imobiliárias, prestadores de serviço e profissionais autônomos.</p>
+        </details>
+        <details>
+          <summary>Quanto tempo leva pra ficar pronto?</summary>
+          <p>O primeiro resultado aparece em até 7 dias. Site e conteúdo seguem o cronograma combinado no diagnóstico.</p>
+        </details>
+        <details>
+          <summary>E os dados dos meus clientes?</summary>
+          <p>Ficam organizados e protegidos, seguindo a LGPD. Todo projeto tem termo de privacidade assinado.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="final">
+    <div class="wrap rv">
+      <h2>Enquanto você lê isso, alguém mandou mensagem pra sua empresa.</h2>
+      <p class="lead">Vamos garantir que ela seja respondida. Chame no WhatsApp e veja a IA da V7 atendendo na prática.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-wa" href="#" data-wa="Oi! Quero ver a IA da V7 atendendo na prática.">
+          <svg><use href="#wa"/></svg>Chamar no WhatsApp</a>
+        <a class="btn btn-ghost" href="https://cal.com/v7-producoes/30min" target="_blank" rel="noopener">Agendar diagnóstico de 30 min</a>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="brand">
-          <svg class="mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="44" height="44" rx="9" fill="#1B6CA8"/>
-            <path d="M11 13L18.5 31H21L15 13H11Z" fill="#3FC1C9"/>
-            <path d="M33 13H19.5L21 17H27.5L18 31H22.5L33 13Z" fill="#FFFFFF"/>
-          </svg>
-          <span class="name">V7 PRODUÇÕES<small>INTELIGÊNCIA E AUTOMAÇÃO</small></span>
-        </div>
-        <p>Você delega. A V7 executa. E a IA não dorme.</p>
-      </div>
-      <div class="footer-actions">
-        <a class="btn btn-primary" id="wa-footer" href="#" target="_blank" rel="noopener">
-          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.24-1.38a9.9 9.9 0 0 0 4.8 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.16-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.26-.28.57-.35.76-.35h.55c.18 0 .42-.07.65.5.24.58.8 2 .87 2.14.07.14.12.31.02.5-.1.2-.15.31-.3.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.3.15.47.13.65-.08.18-.2.76-.88.96-1.19.2-.3.4-.25.68-.15.28.1 1.77.83 2.07.98.3.15.5.23.57.36.08.13.08.75-.16 1.42z"/></svg>
-          Falar no WhatsApp
-        </a>
-        <a class="btn btn-secondary" style="border-color:rgba(255,255,255,0.3)" href="https://cal.com/v7-producoes/30min" target="_blank" rel="noopener">Agendar pelo Cal.com</a>
+  <div class="wrap">
+    <div>
+      <a class="marca" href="#inicio" style="--v7-a:#fff">
+        <svg style="--v7-a:#fff"><use href="#v7"/></svg>
+        <span><b>V7 PRODUÇÕES</b><small>INTELIGÊNCIA E AUTOMAÇÃO</small></span>
+      </a>
+      <p class="frase">Você delega. A V7 executa. E a IA não dorme.</p>
+      <div class="sociais">
+        <a href="https://www.instagram.com/v7producoes.ia/" target="_blank" rel="noopener" aria-label="Instagram da V7"><svg><use href="#ig"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61594440682200" target="_blank" rel="noopener" aria-label="Facebook da V7"><svg><use href="#fb"/></svg></a>
+        <a class="wa" href="#" data-wa="Oi! Vim pelo site da V7." aria-label="WhatsApp da V7"><svg><use href="#wa"/></svg></a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> V7 Produções — Inteligência e Automação</span>
-      <span>São Paulo, SP</span>
+    <div>
+      <h4>Navegar</h4>
+      <ul>
+        <li><a href="#sistema">O sistema</a></li>
+        <li><a href="#para-quem">Para quem</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#planos">Planos</a></li>
+      </ul>
     </div>
+    <div>
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="#" data-wa="Oi! Vim pelo site da V7.">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/v7producoes.ia/" target="_blank" rel="noopener">Instagram @v7producoes.ia</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61594440682200" target="_blank" rel="noopener">Facebook V7 Produções</a></li>
+        <li><a href="https://cal.com/v7-producoes/30min" target="_blank" rel="noopener">Agendar diagnóstico</a></li>
+        <li>São Paulo, SP</li>
+      </ul>
+    </div>
+    <div class="copy"><span>© <span id="ano">2026</span> V7 Produções. Todos os direitos reservados.</span><span>Inteligência e automação</span></div>
   </div>
 </footer>
 
+<a class="wa-float" href="#" data-wa="Oi! Vim pelo site da V7 e quero entender como funciona." aria-label="Falar no WhatsApp" style="color:#fff">
+  <svg><use href="#wa"/></svg>
+</a>
+
 <script>
-  (function () {
-    var WHATSAPP_NUMBER = "5511993674724";
+  // ===== Configuração =====
+  var WHATSAPP_NUMBER = "5511993674724";
+  var META_PIXEL_ID = "1223247133353161"; // cole aqui o ID do Pixel da Meta para medir cliques no WhatsApp
 
-    function waLink(message) {
-      return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+  // Links de WhatsApp com mensagem pronta
+  document.querySelectorAll("[data-wa]").forEach(function (a) {
+    a.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(a.getAttribute("data-wa"));
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.addEventListener("click", function () { if (window.fbq) fbq("track", "Contact"); });
+  });
+
+  // Meta Pixel (só carrega se tiver ID)
+  if (META_PIXEL_ID) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+    s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init", META_PIXEL_ID); fbq("track", "PageView");
+  }
+
+  // Menu mobile
+  var burger = document.getElementById("burger"), menu = document.getElementById("menu");
+  burger.addEventListener("click", function () {
+    var aberto = menu.classList.toggle("aberto");
+    burger.setAttribute("aria-expanded", aberto);
+  });
+  menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { menu.classList.remove("aberto"); burger.setAttribute("aria-expanded", "false"); }); });
+
+  document.getElementById("ano").textContent = new Date().getFullYear();
+
+  // Grade do Instagram
+  var posts = ["post01-segunda-dor","post02-prova","post03-ensino-capa","post04-bastidor","post05-dor","post06-prova","post07-ensino-capa",
+    "post08-bastidor","post09-dor","post10-dado","post11-dado","post12-dado","post13-dado","post14-dado","post15-dado","post16-dado",
+    "post17-dado","post18-ensino","post19-dor","post20-bastidor","post21-ensino"];
+  var grade = document.getElementById("grade");
+  posts.forEach(function (p, i) {
+    var a = document.createElement("a");
+    a.href = "https://www.instagram.com/v7producoes.ia/"; a.target = "_blank"; a.rel = "noopener";
+    a.setAttribute("aria-label", "Post " + (i + 1) + " da V7 no Instagram");
+    a.innerHTML = '<img src="assets/portfolio/' + p + '.jpg" alt="" loading="lazy">';
+    grade.appendChild(a);
+  });
+
+  // Revelar ao rolar
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".rv").forEach(function (el) { io.observe(el); });
+
+  // Conversa animada no celular
+  var roteiro = [
+    { de: "cli", t: "Oi, boa noite! Vocês atendem sábado? Queria saber o valor da limpeza de pele", h: "02:14" },
+    { de: "ia",  t: "Oi! Atendemos sim, sábado das 9h às 14h 😊 A limpeza de pele completa é R$ 180 e leva 1 hora. Como posso te chamar?", h: "02:14" },
+    { de: "cli", t: "Camila", h: "02:15" },
+    { de: "ia",  t: "Prazer, Camila! Neste sábado tenho 9h ou 10h30. Qual fica melhor pra você?", h: "02:15" },
+    { de: "cli", t: "10h30 👍", h: "02:15" },
+    { de: "ia",  t: "Pronto, Camila! Agendado sábado às 10h30 ✅ Na sexta te mando um lembrete por aqui.", h: "02:15", ficha: true }
+  ];
+  var chat = document.getElementById("chat"), ficha = document.getElementById("ficha"), status = document.getElementById("status");
+  var reduzido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function bolha(m) {
+    var d = document.createElement("div");
+    d.className = "msg " + m.de;
+    d.textContent = m.t;
+    var h = document.createElement("span"); h.className = "h"; h.textContent = m.h + (m.de === "ia" ? " ✓✓" : "");
+    d.appendChild(h);
+    return d;
+  }
+  function espera(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  async function rodar() {
+    chat.innerHTML = '<div class="dia">HOJE</div>';
+    ficha.classList.remove("on");
+    if (reduzido) { roteiro.forEach(function (m) { chat.appendChild(bolha(m)); }); ficha.classList.add("on"); return; }
+    await espera(700);
+    for (var i = 0; i < roteiro.length; i++) {
+      var m = roteiro[i];
+      var dig = document.createElement("div");
+      dig.className = "digitando" + (m.de === "cli" ? " cli" : "");
+      dig.innerHTML = "<i></i><i></i><i></i>";
+      if (m.de === "ia") status.textContent = "digitando…";
+      chat.appendChild(dig);
+      await espera(m.de === "ia" ? 1300 : 1000);
+      chat.removeChild(dig);
+      status.textContent = "online";
+      chat.appendChild(bolha(m));
+      if (m.ficha) ficha.classList.add("on");
+      await espera(m.de === "ia" ? 1500 : 800);
     }
-
-    var links = {
-      "wa-nav": "Olá! Vim pelo site da V7 e quero saber mais sobre o atendente de IA.",
-      "wa-hero": "Olá! Vim pelo site da V7 e quero saber mais sobre o atendente de IA.",
-      "wa-footer": "Olá! Vim pelo site da V7 e quero saber mais sobre o atendente de IA.",
-      "wa-essencial": "Olá! Vim pelo site da V7 e quero saber mais sobre o plano Essencial.",
-      "wa-crescimento": "Olá! Vim pelo site da V7 e quero saber mais sobre o plano Crescimento.",
-      "wa-exclusivo": "Olá! Vim pelo site da V7 e quero saber mais sobre o plano Exclusivo."
-    };
-
-    Object.keys(links).forEach(function (id) {
-      var el = document.getElementById(id);
-      if (el) el.setAttribute("href", waLink(links[id]));
-    });
-
-    var yearEl = document.getElementById("year");
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-  })();
+    await espera(6000);
+    rodar();
+  }
+  rodar();
 </script>
-
 </body>
 </html>

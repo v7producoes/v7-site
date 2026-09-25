@@ -1,20 +1,22 @@
-# v7-site
+# v7-site-novo
 
-Site de uma página da V7 Produções. HTML, CSS e JS num único arquivo (`index.html`), sem framework nem build — pronto pra publicar direto no Netlify (deploy de pasta estática).
+Site novo da V7 Produções (setembro/2026). Um arquivo só (`index.html`) + pasta `assets/`, sem build.
 
-Identidade seguida de `v7-base-fundacao.md`: paleta corporativa (azul profundo/azul ação/ciano/grafite/névoa), tipografia Inter, frase-âncora, as 4 frentes de oferta e a tabela de 3 planos.
+## O que tem
+- Topo com frase-âncora e celular mostrando a IA atendendo às 02:14 e salvando o contato
+- O problema (ferramentas soltas) + dado da HBR (23%)
+- O sistema V7: ciclo Atrai → Atende → Organiza → Traz de volta + os 4 módulos
+- Para cada tipo de cliente: do zero / refazer site / conectar peças soltas
+- Projetos: Vivian Boa Sorte, StockCars, Adega do Zaca
+- Os 21 posts do Instagram como portfólio de conteúdo
+- Como funciona, Planos (tabela de 18/08), Dúvidas, chamada final
 
-## Seções
-- Topo: frase-âncora + CTA WhatsApp
-- 4 ofertas
-- 3 planos (Essencial, Crescimento, Exclusivo)
-- Prova: dado da HBR (1 em cada 4 empresas nunca responde quem pede orçamento)
-- Rodapé: WhatsApp + Cal.com
+## Onde editar
+No `<script>` no fim do `index.html`:
+- `WHATSAPP_NUMBER`: número que recebe os cliques
+- `META_PIXEL_ID`: cole o ID do Pixel para medir cliques no WhatsApp (evento Contact) nos anúncios
 
-## Deploy no Netlify
-1. New site from Git → conecte este repositório.
-2. Build command: (vazio). Publish directory: `.` (raiz).
-3. Sem variáveis de ambiente — não há backend.
+Cada botão de WhatsApp tem a própria mensagem pronta no atributo `data-wa`.
 
-## Editar o número de WhatsApp
-Constante `WHATSAPP_NUMBER` no `<script>` no fim de `index.html`.
+## Publicar
+Este repositório (github.com/v7producoes/v7-site) publica sozinho em https://v7producoes.netlify.app a cada push na branch main.
